@@ -1,10 +1,7 @@
+"use strict";
 
-//zadanie 1
 const numberOfFilms = +prompt("Skolko filmov vi uge posmotreli ?", "");
-//console.log(numberOfFilms);
-///////////////////////////////
 
-//zadanie 2
 const personalMovieDB = {
     count: numberOfFilms, 
     movies: {}, 
@@ -12,22 +9,41 @@ const personalMovieDB = {
     genres: [], 
     privat: false
 };
-/////////////////////////////
-
-//zadanie 3
-/*let lastFilm = prompt("Odin iz poslednih prosmotrennyh filmov ?");
-let lastFilmOcenka = prompt("Vo skolko ocenite ego ?");
-personalMovieDB["movies"][lastFilm] = lastFilmOcenka;
-console.log(personalMovieDB);*/
-const lastFilm = prompt("Odin iz poslednih prosmotrennyh filmov ?", ""),
-      lastFilmOcenka = prompt("Vo skolko ocenite ego ?",""),
-      lastFilm2 = prompt("Odin iz poslednih prosmotrennyh filmov ?", ""),
-      lastFilmOcenka2 = prompt("Vo skolko ocenite ego ?", "");
 
 
-personalMovieDB.movies[lastFilm] = lastFilmOcenka;
-personalMovieDB.movies[lastFilm2] = lastFilmOcenka2;
-console.log(personalMovieDB.movies);
+for (let i = 0; i < 2; i++)
+{   
+    const lastFilm = prompt("Odin iz poslednih prosmotrennyh filmov ?", "");
+
+    if(!lastFilm || lastFilm.length >50)
+    {
+        i--;
+    }else if (lastFilm.length > 0)
+    {
+        const lastFilmOcenka = prompt("Vo skolko ocenite ego ?","");
+        if(!lastFilmOcenka || lastFilmOcenka.length >50)
+        {
+            i--;
+        }else if(lastFilmOcenka) {personalMovieDB.movies[lastFilm] = lastFilmOcenka;}
+    }
+}
 
 
+if (personalMovieDB.count <10)
+{
+    alert("Malo filmov smotrite");
+    console.log("Malo filmov smotrite");
+}
+else if (personalMovieDB.count >=10 && personalMovieDB.count <=30)
+{
+    alert("Vi klassichesky zritel");
+    console.log("Vi klassichesky zritel");
+} 
+else 
+{
+    alert("Oshibka");
+    console.log("Oshibka");
+}
 
+
+console.log(personalMovieDB);
