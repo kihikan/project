@@ -1,11 +1,11 @@
 
 //zadanie 1
-let numberOfFilms = prompt("Skolko filmov vi uge posmotreli ?");
+const numberOfFilms = +prompt("Skolko filmov vi uge posmotreli ?", "");
 //console.log(numberOfFilms);
 ///////////////////////////////
 
-//zadanie2
-let personalMovieDB = {
+//zadanie 2
+const personalMovieDB = {
     count: numberOfFilms, 
     movies: {}, 
     actors: {}, 
@@ -14,7 +14,20 @@ let personalMovieDB = {
 };
 /////////////////////////////
 
+//zadanie 3
+/*let lastFilm = prompt("Odin iz poslednih prosmotrennyh filmov ?");
+let lastFilmOcenka = prompt("Vo skolko ocenite ego ?");
+personalMovieDB["movies"][lastFilm] = lastFilmOcenka;
+console.log(personalMovieDB);*/
+const lastFilm = prompt("Odin iz poslednih prosmotrennyh filmov ?", ""),
+      lastFilmOcenka = prompt("Vo skolko ocenite ego ?",""),
+      lastFilm2 = prompt("Odin iz poslednih prosmotrennyh filmov ?", ""),
+      lastFilmOcenka2 = prompt("Vo skolko ocenite ego ?", "");
 
+
+personalMovieDB.movies[lastFilm] = lastFilmOcenka;
+personalMovieDB.movies[lastFilm2] = lastFilmOcenka2;
+console.log(personalMovieDB.movies);
 
 
 
