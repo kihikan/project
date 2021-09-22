@@ -69,32 +69,23 @@ function detectPersonalLevel()
 
 detectPersonalLevel();
 
-function showMyDB()
+function showMyDB(hidden)
 { 
-    if (!personalMovieDB.privat)
+    if (!hidden)
     {
         console.log(personalMovieDB);
     } 
 }
 
-showMyDB();
+showMyDB(personalMovieDB.privat);
 
 function writeYouGenres()
 {
-    let genreCount = 1;
     
-    for (let i=0; i < 3; i++)
+    
+    for (let i=1; i <= 3; i++)
     {
-        let youGenre = prompt(`Ваш любимый жанр под номером ${genreCount}`,"" );
-        if (youGenre == "" || youGenre == null || !isNaN(youGenre))
-        {
-           i--;
-        }
-        else
-        {
-            personalMovieDB.genres[i] = youGenre;
-            genreCount++;
-        }
+       personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`,"" );
     }
 }
 
