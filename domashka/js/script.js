@@ -24,43 +24,29 @@ const movieDB = {
     ]
 };
 
-//Задача 1
-const reklama = document.querySelector(".promo__adv");
-reklama.remove();
+const adv = document.querySelectorAll(".promo__adv img"),
+      poster = document.querySelector(".promo__bg"),
+      genre = poster.querySelector(".promo__genre"),
+      movieList = document.querySelector(".promo__interactive-list");
+      ;
 
 
-// Задача 2 
+adv.forEach(item => {
+    item.remove();
+});
 
-//Способ 1
-const ganr = document.querySelector(".promo__genre");
-ganr.textContent = "ДРАМА";
+genre.textContent = "драма";
 
-// //Способ 2
-// const ganrDrama = document.createElement("div");
-// ganrDrama.classList.add("promo__genre");
-// ganrDrama.textContent = "ДРАМА";
-// ganr.replaceWith(ganrDrama);
+poster.style.backgroundImage = 'url("img/bg.jpg")';
 
-//Задача 3
 
-const promoContent = document.querySelector(".promo__content");
-
-const promoBG = promoContent.querySelector(".promo__bg");
-
-promoBG.style.cssText = `height: 360px; 
-background: url(img/bg.jpg) center center/cover no-repeat; 
-background-position: top;
-padding: 107px 0 0 61px;`;
-
-//Задача 4
-
-const filmy = document.querySelectorAll(".promo__interactive-item");
+movieList.innerHTML = "";
 
 movieDB.movies.sort();
 
-for ( let i = 0; i < movieDB.movies.length; i++)
-{
-    //movieDB.movies[i] = (i+1) + " " + movieDB.movies[i];
-    filmy[i].textContent = (i+1) + " " + movieDB.movies[i];
-}
- 
+movieDB.movies.forEach((film, i) => {
+    movieList.innerHTML += `
+    <li class="promo__interactive-item">${i+1} ${film}
+        <div class="delete"></div>
+    </li>`;
+});

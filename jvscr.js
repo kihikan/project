@@ -21,7 +21,7 @@ circles[0].style.cssText = "background-color: red";
 // }
 
 hearts.forEach(item =>{
-item.style.backgroundColor = "blue";
+
 });
 
 
